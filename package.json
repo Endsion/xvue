@@ -1,0 +1,23 @@
+{
+  "name": "xvue",
+  "version": "1.0.0",
+  "description": "vuelike",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Endsion/xvue.git"
+  },
+  "keywords": [
+    "vue",
+    "like"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Endsion/xvue/issues"
+  },
+  "homepage": "https://github.com/Endsion/xvue#readme"
+}
