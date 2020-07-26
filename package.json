@@ -40,7 +40,7 @@
     "semver": "~2.2.1",
     "shell-task": "~0.1.1",
     "map-stream": "0.0.4",
-    "uglify-js": "~2.4.8",
+    "uglify-js": "~3.10.0",
     "karma": "~0.10.9",
     "karma-mocha": "~0.1.1",
     "karma-coverage": "~0.1.4",
