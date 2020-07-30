@@ -46,14 +46,15 @@ function Compiler (vm, options) {
 
     // process and extend options
     options = compiler.options = options || {}
-    utils.processOptions(options)
+    // utils.processOptions(options)
 
     console.log(options)
     // copy compiler options
-    extend(compiler, options.compilerOptions)
-    // repeat indicates this is a v-repeat instance
+    // code extend(compiler, options.compilerOptions)
+    // repeat indicates this is a v-repeat instance repeat表示这是一个v-repeat实例
     compiler.repeat   = compiler.repeat || false
     // expCache will be shared between v-repeat instances
+    // expCache将在v-repeat实例之间共享
     compiler.expCache = compiler.expCache || {}
 
     // initialize element
@@ -77,11 +78,11 @@ function Compiler (vm, options) {
     }
 
     // create bindings for methods
-    if (options.computed) {
-        for (key in options.computed) {
-            compiler.createBinding(key)
-        }
-    }
+    // if (options.computed) {
+    //     for (key in options.computed) {
+    //         compiler.createBinding(key)
+    //     }
+    // }
 
     // VM ---------------------------------------------------------------------
 
@@ -195,6 +196,8 @@ function Compiler (vm, options) {
 
     // post compile / ready hook
     compiler.execHook('ready')
+
+    console.log(compiler);
 }
 
 var CompilerProto = Compiler.prototype

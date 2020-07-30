@@ -473,7 +473,7 @@ var TextParser = require('./text-parser')
 
 module.exports = {
     prefix         : 'v',
-    debug          : false,
+    debug          : true,
     silent         : false,
     enterClass     : 'v-enter',
     leaveClass     : 'v-leave',
@@ -488,6 +488,7 @@ Object.defineProperty(module.exports, 'delimiters', {
         TextParser.setDelimiters(delimiters)
     }
 })
+
 });
 require.register("xvue/src/utils.js", function(exports, require, module){
 var config    = require('./config'),
@@ -632,7 +633,6 @@ var utils = module.exports = {
      *  simple extend
      */
     extend: function (obj, ext) {
-        console.log(ext)
         for (var key in ext) {
             if (obj[key] !== ext[key]) {
                 obj[key] = ext[key]
@@ -712,6 +712,7 @@ var utils = module.exports = {
 
     /**
      *  convert certain option values to the desired format.
+     * 将某些选项值转换为所需格式。
      */
     processOptions: function (options) {
         var components = options.components,
@@ -819,6 +820,7 @@ function enableDebug () {
         }
     }
 }
+
 });
 require.register("xvue/src/compiler.js", function(exports, require, module){
 var Emitter     = require('./emitter'),
@@ -869,14 +871,15 @@ function Compiler (vm, options) {
 
     // process and extend options
     options = compiler.options = options || {}
-    utils.processOptions(options)
+    // utils.processOptions(options)
 
     console.log(options)
     // copy compiler options
-    extend(compiler, options.compilerOptions)
-    // repeat indicates this is a v-repeat instance
+    // code extend(compiler, options.compilerOptions)
+    // repeat indicates this is a v-repeat instance repeat表示这是一个v-repeat实例
     compiler.repeat   = compiler.repeat || false
     // expCache will be shared between v-repeat instances
+    // expCache将在v-repeat实例之间共享
     compiler.expCache = compiler.expCache || {}
 
     // initialize element
@@ -900,11 +903,11 @@ function Compiler (vm, options) {
     }
 
     // create bindings for methods
-    if (options.computed) {
-        for (key in options.computed) {
-            compiler.createBinding(key)
-        }
-    }
+    // if (options.computed) {
+    //     for (key in options.computed) {
+    //         compiler.createBinding(key)
+    //     }
+    // }
 
     // VM ---------------------------------------------------------------------
 
@@ -1018,6 +1021,8 @@ function Compiler (vm, options) {
 
     // post compile / ready hook
     compiler.execHook('ready')
+
+    console.log(compiler);
 }
 
 var CompilerProto = Compiler.prototype
@@ -1814,6 +1819,7 @@ function getRoot (compiler) {
 }
 
 module.exports = Compiler
+
 });
 require.register("xvue/src/viewmodel.js", function(exports, require, module){
 var Compiler   = require('./compiler'),
@@ -1834,8 +1840,7 @@ var Compiler   = require('./compiler'),
  *  and a few reserved methods
  */
 function ViewModel (options) {
-    // just compile. options are passed directly to compiler
-    console.log(1)
+    // 只是编译。选项直接传递给编译器
     new Compiler(this, options)
 }
 
@@ -1991,6 +1996,7 @@ function query (el) {
 }
 
 module.exports = ViewModel
+
 });
 require.register("xvue/src/binding.js", function(exports, require, module){
 var Batcher        = require('./batcher'),
@@ -2545,6 +2551,7 @@ var pub = module.exports = {
     convert     : convert,
     convertKey  : convertKey
 }
+
 });
 require.register("xvue/src/directive.js", function(exports, require, module){
 var utils      = require('./utils'),

@@ -16,8 +16,7 @@ var Compiler   = require('./compiler'),
  *  and a few reserved methods
  */
 function ViewModel (options) {
-    // just compile. options are passed directly to compiler
-    console.log(1)
+    // 只是编译。选项直接传递给编译器
     new Compiler(this, options)
 }
 

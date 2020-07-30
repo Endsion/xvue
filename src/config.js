@@ -2,7 +2,7 @@ var TextParser = require('./text-parser')
 
 module.exports = {
     prefix         : 'v',
-    debug          : false,
+    debug          : true,
     silent         : false,
     enterClass     : 'v-enter',
     leaveClass     : 'v-leave',

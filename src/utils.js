@@ -140,7 +140,6 @@ var utils = module.exports = {
      *  simple extend
      */
     extend: function (obj, ext) {
-        console.log(ext)
         for (var key in ext) {
             if (obj[key] !== ext[key]) {
                 obj[key] = ext[key]
@@ -220,6 +219,7 @@ var utils = module.exports = {
 
     /**
      *  convert certain option values to the desired format.
+     * 将某些选项值转换为所需格式。
      */
     processOptions: function (options) {
         var components = options.components,
